@@ -45,9 +45,9 @@ function init() {
 
     const textureLoader = new THREE.TextureLoader();
 
-    const bgTexture = textureLoader.load("../assets/Dungeon.png")
+    const bgTexture = textureLoader.load("../three-fbx-sample/assets/Dungeon.png")
     scene.background = bgTexture
-    
+
     scene.fog = new THREE.Fog(0xa0a0a0, 200, 1000);
 
     const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
@@ -79,7 +79,7 @@ function init() {
     // model
     const loader = new FBXLoader();
 
-    loader.load('../models/fbx/Dragon.fbx', function (object) {
+    loader.load('../three-fbx-sample/models/fbx/Dragon.fbx', function (object) {
         fbx = object;
         mixer = new THREE.AnimationMixer(fbx);
 
