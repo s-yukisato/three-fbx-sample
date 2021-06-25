@@ -11,10 +11,21 @@ const clock = new THREE.Clock();
 
 let mixer;
 
-let fbx, run, attack;
+let fbx;
+
+let degree = 0;
+
+function calcObjPos(radius, degree, speed) {
+    let sp = speed || 1.0;
+    const rad = (degree * sp) * Math.PI / 180;
+    const x = radius * Math.sin(rad);// X座標 = 半径 x Sinθ
+    const y = radius * Math.cos(rad);// Y座標 = 半径 x Cosθ
+
+    return { 'x': x, 'y': y };
+}
 
 init();
-moveForward()
+rotate()
 animate();
 
 function init() {
@@ -23,7 +34,7 @@ function init() {
     document.body.appendChild(container);
 
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
-    camera.position.set(100, 200, 300);
+    camera.position.set(200, 300, 600);
 
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0xa0a0a0);
@@ -58,29 +69,19 @@ function init() {
     // model
     const loader = new FBXLoader();
 
-    loader.load('../models/fbx/Monk.fbx', function (object) {
-
+    loader.load('..three-fbx-sample/models/fbx/Dragon.fbx', function (object) {
         fbx = object;
         mixer = new THREE.AnimationMixer(fbx);
-        run = object.animations[4];
-        attack = object.animations[6];
-        
-        const action = mixer.clipAction(run);
+
+        const action = mixer.clipAction(fbx.animations[0]);
         action.play();
-
-        // テクスチャー読み込み
-        const textureLoader = new THREE.TextureLoader();
-        const texture = textureLoader.load('../models/texture/Monk_Texture.png');
-
-        fbx.position.z = -200
 
         fbx.traverse(function (child) {
 
             if (child.isMesh) {
-                
+
                 child.castShadow = true;
                 child.receiveShadow = true;
-                child.material.map = texture;
 
             }
 
@@ -117,15 +118,14 @@ function onWindowResize() {
 
 }
 
-function moveForward() {
-    requestAnimationFrame(moveForward);
-    if(fbx){
-        if(fbx.position.z == -10) {
-            mixer.uncacheAction(run)
-            mixer.clipAction(attack).play();
-        } else {
-            fbx.position.z += 5
-        }
+function rotate() {
+    requestAnimationFrame(rotate);
+    if (fbx) {
+        degree++;
+        const pos = calcObjPos(200, degree);
+        const lookPos = calcObjPos(230, degree);
+        fbx.position.set(pos['y'], 0, pos['x']);
+        fbx.lookAt(new THREE.Vector3(lookPos['y'], 0, lookPos['x']))
     }
 
     renderer.render(scene, camera);
