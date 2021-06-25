@@ -10,22 +10,26 @@ let camera, scene, renderer, stats;
 const clock = new THREE.Clock();
 
 let mixer;
-
+// 移動用オブジェクト
 let fbx;
+// 座標リスト
+let points = [];
+// 半径
+const radius = 200;
 
-let degree = 0;
-
-function calcObjPos(radius, degree, speed) {
-    let sp = speed || 1.0;
-    const rad = (degree * sp) * Math.PI / 180;
-    const x = radius * Math.sin(rad);// X座標 = 半径 x Sinθ
-    const y = radius * Math.cos(rad);// Y座標 = 半径 x Cosθ
-
-    return { 'x': x, 'y': y };
+// 円形に360分割した点を格納
+for (let index = 0; index <= 360; index++) {
+    var rad = (index * Math.PI) / 180;
+    var x = radius * Math.cos(rad);
+    var z = radius * Math.sin(rad);
+    points.push(new THREE.Vector3(x, 0, z));
 }
 
+// フレーム数
+let frame = 0;
+
 init();
-rotate()
+update()
 animate();
 
 function init() {
@@ -37,7 +41,13 @@ function init() {
     camera.position.set(200, 300, 600);
 
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xa0a0a0);
+    // scene.background = new THREE.Color(0xa0a0a0);
+
+    const textureLoader = new THREE.TextureLoader();
+
+    const bgTexture = textureLoader.load("../assets/Dungeon.png")
+    scene.background = bgTexture
+    
     scene.fog = new THREE.Fog(0xa0a0a0, 200, 1000);
 
     const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
@@ -69,7 +79,7 @@ function init() {
     // model
     const loader = new FBXLoader();
 
-    loader.load('..three-fbx-sample/models/fbx/Dragon.fbx', function (object) {
+    loader.load('../models/fbx/Dragon.fbx', function (object) {
         fbx = object;
         mixer = new THREE.AnimationMixer(fbx);
 
@@ -118,17 +128,33 @@ function onWindowResize() {
 
 }
 
-function rotate() {
-    requestAnimationFrame(rotate);
+// フレーム毎に更新します。
+function update() {
+    requestAnimationFrame(update);
+    // フレーム数をインクリメント
+    frame++;
+    // もしフレーム数が360以上であれば0に戻す
+    if (frame > 359) frame = 0;
+    // ドラゴンの位置を修正
     if (fbx) {
-        degree++;
-        const pos = calcObjPos(200, degree);
-        const lookPos = calcObjPos(230, degree);
-        fbx.position.set(pos['y'], 0, pos['x']);
-        fbx.lookAt(new THREE.Vector3(lookPos['y'], 0, lookPos['x']))
+        let normal = getNormal(points[frame], points[frame + 1])
+        fbx.position.copy(points[frame]);
+        fbx.up.set(normal.x, normal.y, normal.z)
+        fbx.lookAt(points[frame + 1])
     }
-
     renderer.render(scene, camera);
+}
+
+// 現在位置と次フレームの位置から法線を算出します。
+function getNormal(currentPoint, nextPoint) {
+    var vAB = nextPoint
+        .clone()
+        .sub(currentPoint)
+        .normalize();
+    var vAZ = new THREE.Vector3(0, 0, 1);
+    // 法線ベクトルがプラスを向くよう調整
+    var normalVec = currentPoint.z >= 0 ? vAB.cross(vAZ) : vAZ.cross(vAB);
+    return normalVec;
 }
 
 function animate() {
@@ -142,5 +168,4 @@ function animate() {
     renderer.render(scene, camera);
 
     stats.update();
-
 }
