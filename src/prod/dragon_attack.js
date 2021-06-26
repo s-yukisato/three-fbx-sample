@@ -11,7 +11,7 @@ let camera, scene, renderer, stats;
 const clock = new THREE.Clock();
 
 let mixer;
-// 移動用オブジェクト
+
 let fbx;
 
 let map, mesh_;
@@ -31,7 +31,7 @@ function init() {
 
     const textureLoader = new THREE.TextureLoader();
 
-    const bgTexture = textureLoader.load("../assets/Dungeon.png")
+    const bgTexture = textureLoader.load("../../three-fbx-sample/assets/Dungeon.png")
     scene.background = bgTexture
 
 
@@ -48,7 +48,7 @@ function init() {
     dirLight.shadow.camera.right = 500;
     scene.add(dirLight);
 
-    const map_ground = textureLoader.load("../models/texture/magma.png")
+    const map_ground = textureLoader.load("../../three-fbx-sample/models/texture/magma.png")
     const ground = new THREE.Mesh(
         new THREE.PlaneGeometry(2000, 2000, 64, 64),
         new THREE.MeshLambertMaterial({ map: map_ground })
@@ -57,11 +57,6 @@ function init() {
     ground.rotation.x = Math.PI / -2;
     ground.receiveShadow = true;
     scene.add(ground);
-
-    const grid = new THREE.GridHelper(2000, 20, 0x000000, 0x000000);
-    grid.material.opacity = 0.2;
-    grid.material.transparent = true;
-    scene.add(grid);
 
     // model
     const loader = new FBXLoader();
