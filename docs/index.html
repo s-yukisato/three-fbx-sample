@@ -1,20 +1,248 @@
-<!DOCTYPE html>
-<html lang="ja">
+<!doctype html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>サンプル</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Three.js サンプル集</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="google" content="notranslate" />
+    <meta name="referrer" content="unsafe-url" />
+
+    <script src="main.js" defer></script>
 </head>
+
 <body>
-    <h1>Sample</h1>
-    <div>
-        <ul>
-            <li><a href="./contents/dragon.html">ドラゴン</a></li>
-            <li><a href="./contents/dragon_attack.html">ドラゴン（攻撃）</a></li>
-            <li><a href="./contents/warriors.html">戦士</a></li>
-            <li><a href="./contents/sea.html">海</a></li>
-        </ul>
+
+    <header>
+        <div class="bg-dark shadow-sm">
+            <div class="container">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2"
+                        viewBox="0 0 24 24">
+                        <circle cx="12" cy="13" r="4" />
+                    </svg>
+                    <strong class="text-light">Three.js</strong>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">THREE.js example</h1>
+                    <p class="lead text-muted">Something short and leading about the collection below—its contents, the
+                        creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it
+                        entirely.</p>
+                    <p>
+                        <a href="#" class="btn btn-primary my-2">Main call to action</a>
+                        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="./assets/img/sea.png" alt="sea">
+
+                            <div class="card-body">
+                                <h3 class="card-title"><u>海</u></h3>
+                                <p class="card-text">github <a href="https://github.com/s-yukisato/three-fbx-sample/blob/main/src/sea.js" class="btn btn-sm btn-outline-secondary">Source Code</a></p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="./contents/sea.html" class="btn btn-sm btn-outline-primary my-2">Watch!</a>
+                                    </div>
+                                    <small class="text-muted">Jun 26</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img class="" src="./assets/img/dragon_attack.png" alt="...">
+
+                            <div class="card-body">
+                                <h3 class="card-title"><u>ドラゴン</u></h3>
+                                <p class="card-text">github <a href="https://github.com/s-yukisato/three-fbx-sample/blob/main/src/dragon.js" class="btn btn-sm btn-outline-secondary">Source Code</a></p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="./contents/dragon_attack.html" class="btn btn-sm btn-outline-primary my-2">Watch!</a>
+                                    </div>
+                                    <small class="text-muted">Jun 26</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="./assets/img/warriors.png" alt="warriors">
+
+                            <div class="card-body">
+                                <h3 class="card-title"><u>戦士</u></h3>
+                                <p class="card-text">github <a href="https://github.com/s-yukisato/three-fbx-sample/blob/main/src/warriors.js" class="btn btn-sm btn-outline-secondary">Source Code</a></p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="./contents/warriors.html" class="btn btn-sm btn-outline-primary my-2">Watch!</a>
+                                    </div>
+                                    <small class="text-muted">Jun 25</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="./assets/img/dragon_fly.png" alt="fly">
+
+                            <div class="card-body">
+                                <h3 class="card-title"><u>飛行</u></h3>
+                                <p class="card-text">github <a href="https://github.com/s-yukisato/three-fbx-sample/blob/main/src/dragon_attack.js" class="btn btn-sm btn-outline-secondary">Source Code</a></p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="./contents/dragon.html" class="btn btn-sm btn-outline-primary my-2">Watch!</a>
+                                    </div>
+                                    <small class="text-muted">Jun 25</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="./assets/img/town.png" alt="fly">
+
+                            <div class="card-body">
+                                <h3 class="card-title"><u>ダンジョン</u></h3>
+                                <p class="card-text">github <a href="https://github.com/s-yukisato/s-yukisato.github.io/blob/main/lesson7/land.html" class="btn btn-sm btn-outline-secondary">Source Code</a></p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="https://s-yukisato.github.io/lesson7/land.html" class="btn btn-sm btn-outline-primary my-2">Watch!</a>
+                                    </div>
+                                    <small class="text-muted">Jun 20</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                                preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
+                                    dy=".3em">Thumbnail</text>
+                            </svg>
+
+                            <div class="card-body">
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                                preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
+                                    dy=".3em">Thumbnail</text>
+                            </svg>
+
+                            <div class="card-body">
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                                preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
+                                    dy=".3em">Thumbnail</text>
+                            </svg>
+
+                            <div class="card-body">
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                                preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
+                                    dy=".3em">Thumbnail</text>
+                            </svg>
+
+                            <div class="card-body">
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="text-muted py-5">
+        <div class="container">
+            <p class="float-end mb-1">
+                <a href="#">Back to top</a>
+            </p>
+        </div>
+    </footer>
+
+
+
 </body>
 
 </html>
