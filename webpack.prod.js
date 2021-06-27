@@ -6,10 +6,10 @@ const common = require('./webpack.common.js')
 
 module.exports = merge(common, {
     mode: "production",
-    entry: './src/prod/sea.js',
+    entry: './src/prod/dungeon.js',
     output: {
         path: outputPath,
-        filename: 'sea.js?[hash]' // バンドル後のファイル
+        filename: 'dungeon.js?[hash]' // バンドル後のファイル
     },
     plugins: [
         // new HtmlWebpackPlugin({
@@ -24,9 +24,13 @@ module.exports = merge(common, {
         //     template: './src/index.html',
         //     filename: '../contents/dragon_attack.html'
         // }),
+        // new HtmlWebpackPlugin({
+        //     template: './src/index.html',
+        //     filename: '../contents/sea.html'
+        // }),
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            filename: '../contents/sea.html'
+            filename: '../contents/dungeon.html'
         }),
     ]
 });
